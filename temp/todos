@@ -1,0 +1,14 @@
+Proptypes (validatie)
+tests
+deepfreeze
+
+
+function HalloWereld() {
+  return <h1>Hallo wereld!</h1>;
+}
+
+const element = <HalloWereld />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);

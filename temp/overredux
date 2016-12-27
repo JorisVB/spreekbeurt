@@ -1,0 +1,46 @@
+* All state in one immutable state tree
+* state tree is readonly, changes only by dispatching an action
+* pure functions: same input -> same output. Returns a new object
+* UI/View Layer is most predictable when defined as pure function of the state
+* redux takes previous state and applies pure function (action dispatched) to produce next state of the app. This is called the reducer
+
+
+
+add:
+[...list, 0]
+remove at index:
+[...list.slice(0, index), ...list.slice(index+1)]
+change at index to 3:
+[...list.slice(0, index), 3,...list.slice(index+1)]
+
+change object:
+Object.assign({}, todo, {completed: !todo.completed}) <- meerdere assignments naar de meest linkse, meest rechtse wint altijd <= polyfill nodig
+In ES7: {...todo, completed: !todo.completed}
+
+Always default: return state;
+
+* Presentational and container components
+
+https://www.codementor.io/reactjs/tutorial/intro-to-react-redux-pros voor uitleg waarom
+
+Three principles:
+* single source of truth
+    - state in an object tree in a single store
+* state is read-only
+    - updated only by actions, centralized and happen one by one
+* changes are made with pure functions called reducers
+
+ACTIONS 
+Actions are payloads of information that send data from your application to your store.
+Action creators are exactly that—functions that create actions.
+to actually initiate a dispatch, pass the result to the dispatch() function: dispatch(addTodo(text))
+The dispatch() function can be accessed directly from the store as store.dispatch(), but more likely you'll access it using a helper like react-redux's connect().
+Action creators can also be asynchronous and have side-effects.
+
+REDUCERS
+Given the same arguments, it should calculate the next state and return it. No surprises. No side effects. No API calls. No mutations. Just a calculation.
+So it can not:
+- Mutate its arguments;
+- Perform side effects like API calls and routing transitions;
+- Call non-pure functions, e.g. Date.now() or Math.random().
+

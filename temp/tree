@@ -1,0 +1,14 @@
+Task
+- schedule[]
+--- id
+--- name
+--- scheduleType
+--- hours
+--- occursEveryType
+--- occursEveryAmount    
+--- occurs
+--- startDate
+--- effectiveFrom
+--- effectiveTo
+--- collapsed
+--- 
