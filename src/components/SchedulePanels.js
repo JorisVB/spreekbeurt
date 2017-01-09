@@ -16,17 +16,24 @@ const SchedulePanels = ({schedules, onToggle}) => {
     );
 }
 
-const ScheduleType = ({scheduleType}) => {
+const ScheduleType = ({schedule, onClick}) => {
+    let scheduleType = schedule.scheduleType
     return (
         <div>        
-            <ButtonGroup>                
+            <ButtonGroup>
                 {Object.keys(scheduleTypes).map((k) =>
-                    <Button active={ scheduleType === scheduleTypes[k].key} bsStyle={scheduleTypes[k].bsStyle} key={k} >{scheduleTypes[k].display}</Button>
-                    // onClick={() => this.setState({ scheduleType: scheduleTypes[k].key })}
+                    <Button 
+                        onClick={() => onClick(scheduleTypes[k].key)} 
+                        active={ scheduleType === scheduleTypes[k].key} 
+                        bsStyle={scheduleTypes[k].bsStyle} 
+                        key={k} >{scheduleTypes[k].display}
+                    </Button>                    
                 )}
             </ButtonGroup>
         </div>)
 }
+
+
 
 class Schedule extends Component {
     constructor(props) {
@@ -44,7 +51,9 @@ class Schedule extends Component {
                     </Col>
                     <Col sm={10}>
                         <ControlLabel>Scheduletype</ControlLabel>
-                        <ScheduleType scheduleType={this.props.schedule.scheduleType} />
+                        <ScheduleType 
+                            schedule={this.props.schedule} 
+                            onClick={(scheduleType) => window.store.dispatch({ type: 'SET_SCHEDULE_TYPE', id: this.props.schedule.id, scheduleType: (scheduleType) })}/>
                     </Col>
                 </FormGroup>
                 <FormGroup>

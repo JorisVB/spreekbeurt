@@ -9,7 +9,8 @@ const occurenceTypes =
 { 
     DAILY: { key: "daily", display: "Dag(en)" }, 
     WEEKLY: { key: "weekly", display: "Week(en)" },
-    MONTHLY: { key: "monthly", display: "Maand(en)" }, 
+    MONTHLY: { key: "monthly", display: "Maand(en)" },
+    MONTHLY_WORKDAYS: { key: "monthly", display: "Maand(en) (werkdagen)" }, 
 }
 
 const weekDays = ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"]
