@@ -2,18 +2,17 @@ const schedule = (state = {}, action) => {
     switch(action.type) {
         case 'ADD_SCHEDULE':
             return {
-                id: action.id,
+                id: action.scheduleId,
                 text: action.text,
                 collapsed: false
-            }
-        case 'TOGGLE_SCHEDULE_EXPANDED':
+            }        
+        case 'SET_SCHEDULE_TYPE':
             if (state.id !== action.id) {
                 return state
-            }            
+            }
             return Object.assign({}, state, {
-                expanded: !state.expanded
+                scheduleType: state.scheduleType
             })
-
         default:
             return state
     }
@@ -22,8 +21,8 @@ const schedule = (state = {}, action) => {
 const schedules = (state = [], action) => {
     switch (action.type) {
         case 'ADD_SCHEDULE':
-            return [...state, schedule(undefined, action)]
-        case 'TOGGLE_SCHEDULE_EXPANDED':
+            return [...state, schedule(undefined, action)]        
+        case 'SET_SCHEDULE_TYPE':
             return state.map(sch => schedule(sch, action))
         default:
             return state

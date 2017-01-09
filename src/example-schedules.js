@@ -25,7 +25,7 @@ const exampleSchedules = [
   {
     id: 3,
     name: "Voorbeeld schedule 3",
-    scheduleType: scheduleTypes.ADD.key,
+    scheduleType: scheduleTypes.CANCEL.key,
     hours: [8, 5],
     occursEveryType: occurenceTypes.MONTHLY.key,
     occursEveryAmount: 1,    

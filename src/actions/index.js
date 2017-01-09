@@ -2,13 +2,14 @@ let nextScheduleId = 4;
 export const AddSchedule = () => {
     return {
         type: 'ADD_SCHEDULE',
-        id: nextScheduleId++
+        scheduleId: nextScheduleId++
     }
 }
 
-export const ToggleScheduleCollapsed = (id) => {
+export const SetScheduleType = (scheduleId, scheduleType) => {
     return {
-        type: 'TOGGLE_SCHEDULE_EXPANDED',
-        id
+        type: 'SET_SCHEDULE_TYPE',
+        scheduleId,
+        scheduleType        
     }
 }

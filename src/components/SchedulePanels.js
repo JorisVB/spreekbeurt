@@ -3,8 +3,8 @@ import { Panel, PanelGroup, FormGroup, FormControl, ControlLabel, ButtonGroup, B
 import { scheduleTypes, occurenceTypes, weekDays } from '../consts';
 import AddScheduleButton from '../containers/AddSchedule';
 
-const SchedulePanels = ({schedules, onToggle}) => {    
-    const panels = schedules.map((schedule) =>    
+const SchedulePanels = ({schedules, onToggle}) => {
+    const panels = schedules.map((schedule) =>
         <Panel header="Schedule" collapsible key={schedule.id}>
             <Schedule key={schedule.id} schedule={schedule} />
         </Panel>);
@@ -16,10 +16,22 @@ const SchedulePanels = ({schedules, onToggle}) => {
     );
 }
 
+const ScheduleType = ({scheduleType}) => {
+    return (
+        <div>        
+            <ButtonGroup>                
+                {Object.keys(scheduleTypes).map((k) =>
+                    <Button active={ scheduleType === scheduleTypes[k].key} bsStyle={scheduleTypes[k].bsStyle} key={k} >{scheduleTypes[k].display}</Button>
+                    // onClick={() => this.setState({ scheduleType: scheduleTypes[k].key })}
+                )}
+            </ButtonGroup>
+        </div>)
+}
+
 class Schedule extends Component {
     constructor(props) {
         super(props);
-        this.state = this.props.schedule;        
+        this.state = this.props.schedule;
     }
 
     render() {
@@ -32,13 +44,7 @@ class Schedule extends Component {
                     </Col>
                     <Col sm={10}>
                         <ControlLabel>Scheduletype</ControlLabel>
-                        <div>
-                            <ButtonGroup>
-                                {Object.keys(scheduleTypes).map((k) =>
-                                    <Button bsStyle={scheduleTypes[k].bsStyle} key={k} active={this.state.scheduleType === scheduleTypes[k].key} onClick={() => this.setState({ scheduleType: scheduleTypes[k].key })}>{scheduleTypes[k].display}</Button>
-                                )}
-                            </ButtonGroup>
-                        </div>
+                        <ScheduleType scheduleType={this.props.schedule.scheduleType} />
                     </Col>
                 </FormGroup>
                 <FormGroup>
@@ -68,15 +74,15 @@ class Schedule extends Component {
                     </Col>
                 </FormGroup>
                 <FormGroup>
-                    {                        
+                    {
                         this.state.occursEveryType === occurenceTypes.WEEKLY.key &&
                         <Col sm={12}>
                             <FormGroup>
                                 <Col sm={12}>
-                                <ControlLabel>Dagen</ControlLabel>
-                                {weekDays.map((day, index) =>
-                                    <Checkbox readOnly key={index} checked={this.state.occurs && this.state.occurs.indexOf(index) > -1}>{day}</Checkbox>
-                                )}
+                                    <ControlLabel>Dagen</ControlLabel>
+                                    {weekDays.map((day, index) =>
+                                        <Checkbox readOnly key={index} checked={this.state.occurs && this.state.occurs.indexOf(index) > -1}>{day}</Checkbox>
+                                    )}
                                 </Col>
                             </FormGroup>
                         </Col>
