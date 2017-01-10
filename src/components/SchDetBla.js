@@ -1,44 +1,7 @@
-import React, { Component } from 'react';
-import { Panel, PanelGroup, FormGroup, FormControl, ControlLabel, ButtonGroup, Button, Checkbox, Form, Col } from 'react-bootstrap';
-import { scheduleTypes, occurenceTypes, weekDays } from '../consts';
-import AddScheduleButton from '../containers/AddSchedule';
-
-const SchedulePanels = ({schedules, onToggle}) => {
-    const panels = schedules.map((schedule) =>
-        <Panel header="Schedule" collapsible key={schedule.id}>
-            <Schedule key={schedule.id} schedule={schedule} />
-        </Panel>);
-    return (
-        <div>
-            <PanelGroup>{panels}</PanelGroup>
-            <AddScheduleButton></AddScheduleButton>
-        </div>
-    );
-}
-
-const ScheduleType = ({schedule, onClick}) => {
-    let scheduleType = schedule.scheduleType
-    return (
-        <div>        
-            <ButtonGroup>
-                {Object.keys(scheduleTypes).map((k) =>
-                    <Button 
-                        onClick={() => onClick(scheduleTypes[k].key)} 
-                        active={ scheduleType === scheduleTypes[k].key} 
-                        bsStyle={scheduleTypes[k].bsStyle} 
-                        key={k} >{scheduleTypes[k].display}
-                    </Button>                    
-                )}
-            </ButtonGroup>
-        </div>)
-}
-
-
-
-class Schedule extends Component {
+class ScheduleDetailsBla extends Component {
     constructor(props) {
         super(props);
-        this.state = this.props.schedule;
+        this.state = null;
     }
 
     render() {
@@ -76,7 +39,7 @@ class Schedule extends Component {
                         <FormControl componentClass="select"
                             defaultValue={this.state.occursEveryType}
                             onChange={(e) => this.setState({ occursEveryType: e.target.value })}>
-                            {Object.values(occurenceTypes).map((occurenceType) =>
+                            {Object.values(occurrenceTypes).map((occurenceType) =>
                                 <option value={occurenceType.key} key={occurenceType.key}>{occurenceType.display}</option>
                             )}
                         </FormControl>
@@ -84,7 +47,7 @@ class Schedule extends Component {
                 </FormGroup>
                 <FormGroup>
                     {
-                        this.state.occursEveryType === occurenceTypes.WEEKLY.key &&
+                        this.state.occursEveryType === occurrenceTypes.WEEKLY.key &&
                         <Col sm={12}>
                             <FormGroup>
                                 <Col sm={12}>
@@ -97,7 +60,7 @@ class Schedule extends Component {
                         </Col>
                     }
                     {
-                        this.state.occursEveryType === occurenceTypes.MONTHLY.key &&
+                        this.state.occursEveryType === occurrenceTypes.MONTHLY.key &&
                         <Col sm={12}>
                             <FormGroup>
                                 <Col sm={6}>
@@ -129,5 +92,3 @@ class Schedule extends Component {
         );
     }
 }
-
-export { SchedulePanels, Schedule }

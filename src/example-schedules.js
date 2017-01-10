@@ -1,4 +1,4 @@
-import { scheduleTypes, occurenceTypes } from './consts';
+import { scheduleTypes, occurrenceTypes } from './consts';
 
 const exampleSchedules = [
   {
@@ -6,8 +6,9 @@ const exampleSchedules = [
     name: "Voorbeeld schedule 1",
     scheduleType: scheduleTypes.ADD.key,
     hours: [7, 14],
-    occursEveryType: occurenceTypes.DAILY.key,
+    occursEveryType: occurrenceTypes.WEEKLY.key,
     occursEveryAmount: 3,
+    occurs: [],
     startDate: new Date(2011, 1, 1),    
   },
   {
@@ -15,7 +16,7 @@ const exampleSchedules = [
     name: "Voorbeeld schedule 2",
     scheduleType: scheduleTypes.ADD.key,
     hours: [8, 9],
-    occursEveryType: occurenceTypes.WEEKLY.key,
+    occursEveryType: occurrenceTypes.DAILY.key,
     occursEveryAmount: 2,    
     occurs: [1, 3, 4],
     startDate: new Date(2011, 1, 1),
@@ -27,10 +28,9 @@ const exampleSchedules = [
     name: "Voorbeeld schedule 3",
     scheduleType: scheduleTypes.CANCEL.key,
     hours: [8, 5],
-    occursEveryType: occurenceTypes.MONTHLY.key,
+    occursEveryType: occurrenceTypes.MONTHLY.key,
     occursEveryAmount: 1,    
-    occursDays: [1, 12, 18],
-    occursWorkDays: [3, 5, 7],
+    occurs: [1, 12, 18],
     startDate: new Date(2011, 1, 1),    
   }
 ]

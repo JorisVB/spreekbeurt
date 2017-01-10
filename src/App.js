@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col, Panel } from 'react-bootstrap'
 import './App.css';
-import Schedules from './containers/Schedules';
+import ScheduleListComponent from './containers/ScheduleList';
+import SelectedScheduleDetails from './containers/SelectedSchedule';
 import { Calendar } from './components/Calendar';
 
 class App extends Component {
   render() {
     return (
-      <Grid>
+      <Grid fluid={true}>
         <Row>
-          <Col md={6} xs={12}>
-            <Schedules />
+          <Col md={2}>            
+            <ScheduleListComponent />
           </Col>
-          <Col md={6} xs={12}>
-            <Calendar />
+          <Col md={3}>            
+            <SelectedScheduleDetails />            
+          </Col>
+          <Col md={3}>
+            <Panel>
+              <Calendar />
+            </Panel>
           </Col>
         </Row>
       </Grid>
