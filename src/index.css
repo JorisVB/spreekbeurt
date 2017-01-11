@@ -11,3 +11,17 @@ table.table tbody tr td, table.table thead tr td {
 button.btn-xs {
   width: 25px;
 }
+
+.calendar h1 {  
+  text-align: center;
+}
+
+.increasemonth {
+    cursor: pointer;
+    float: right;
+}
+
+.decreasemonth {
+    cursor: pointer;
+    float: left;
+}

@@ -26,7 +26,7 @@ const schedule = (state = {}, action) => {
             return Object.assign({}, state, {
                 occursEveryAmount: action.amount
             })
-        case 'SET_SCHEDULE_TOGGLE_DAY':                        
+        case 'SET_SCHEDULE_TOGGLE_DAY':                                 
             let occurs = state.occurs;            
             let newOccurs = occurs;
             let index = occurs.indexOf(action.day);            

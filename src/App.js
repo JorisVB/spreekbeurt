@@ -3,7 +3,7 @@ import { Grid, Row, Col, Panel } from 'react-bootstrap'
 import './App.css';
 import ScheduleListComponent from './containers/ScheduleList';
 import SelectedScheduleDetails from './containers/SelectedSchedule';
-import { Calendar } from './components/Calendar';
+import Calendar from './containers/Calendar';
 
 class App extends Component {
   render() {

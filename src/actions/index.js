@@ -45,3 +45,8 @@ export const ToggleDay = (id, day, checked) => ({
         day,
         checked
 })
+
+export const IncreaseSelectedMonth = (amount) => ({
+        type: 'INCREASE_SELECTED_MONTH',
+        amount: amount
+})

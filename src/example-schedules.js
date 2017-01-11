@@ -10,6 +10,7 @@ const exampleSchedules = [
     occursEveryAmount: 3,
     occurs: [],
     startDate: new Date(2011, 1, 1),    
+    endDate: new Date(2021, 1, 1),       
   },
   {
     id: 2,
@@ -20,8 +21,7 @@ const exampleSchedules = [
     occursEveryAmount: 2,    
     occurs: [1, 3, 4],
     startDate: new Date(2011, 1, 1),
-    effectiveFrom: new Date(2012, 1, 1),
-    effectiveTo: new Date(2014, 1, 1),    
+    endDate: new Date(2012, 1, 1), 
   },
   {
     id: 3,
@@ -31,7 +31,8 @@ const exampleSchedules = [
     occursEveryType: occurrenceTypes.MONTHLY.key,
     occursEveryAmount: 1,    
     occurs: [1, 12, 18],
-    startDate: new Date(2011, 1, 1),    
+    startDate: new Date(2011, 1, 1), 
+    endDate: new Date(2021, 1, 1),    
   }
 ]
 

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, ControlLabel, Form } from 'react-bootstrap';
 import { ScheduleType } from './ScheduleType';
 import { OccursEveryType } from './OccursEveryType';
 import OccurrenceWeekDays from './OccurrenceWeekDays';
+import OccurrenceMonthDays from './OccurrenceMonthDays';
 import { occurrenceTypes } from '../consts';
 
 const ScheduleDetails = ({
@@ -38,13 +39,19 @@ const ScheduleDetails = ({
             }
             {
                 schedule.occursEveryType === occurrenceTypes.MONTHLY.key &&
-                <OccurrenceWeekDays
-                    schedule={schedule} />
+                <OccurrenceMonthDays
+                    schedule={schedule} 
+                    label="Dagen"
+                    amountOfDays={31}
+                    onToggleDay={(day, checked) => onToggleDay(schedule.id, day, checked)}/>
             }
             {
                 schedule.occursEveryType === occurrenceTypes.MONTHLY_WORKDAYS.key &&
-                <OccurrenceWeekDays
-                    schedule={schedule} />
+                <OccurrenceMonthDays
+                    schedule={schedule} 
+                    label="Werkdagen"
+                    amountOfDays={20}
+                    onToggleDay={(day, checked) => onToggleDay(schedule.id, day, checked)}/>
             }
         </Form>
     );
