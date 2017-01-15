@@ -40,6 +40,10 @@ const schedule = (state = {}, action) => {
             return Object.assign({}, state, {
                 occurs: newOccurs
             })
+        case 'SET_SCHEDULE_STARTDATE':
+            return Object.assign({}, state, {
+                startDate: action.startDate
+            })
         default:
             return state
     }
@@ -52,7 +56,8 @@ const newSchedule = (id) => {
         hours: [],
         occursEveryType: occurrenceTypes.DAILY.key,
         occursEveryAmount: 1,    
-        occurs: [],        
+        occurs: [], 
+        startDate: new Date()
     }
 }
 
@@ -60,6 +65,8 @@ const schedules = (state = [], action) => {
     switch (action.type) {
         case 'ADD_SCHEDULE':
             return [...state, newSchedule(action.id)]
+        case 'REMOVE_SCHEDULE':            
+            return state.filter(schedule => schedule.id !== action.id)
         case 'SET_SCHEDULE_TYPE':
         case 'SET_SCHEDULE_NAME':
         case 'SET_SCHEDULE_HOURS': 
@@ -67,8 +74,6 @@ const schedules = (state = [], action) => {
         case 'SET_SCHEDULE_OCCURS_EVERY_AMOUNT':       
         case 'SET_SCHEDULE_TOGGLE_DAY':
         case 'SET_SCHEDULE_STARTDATE':
-        case 'SET_SCHEDULE_EFFECTIVE_FROM':
-        case 'SET_SCHEDULE_EFFECTIVE_TO':
             return state.map(sch => schedule(sch, action))        
         default:
             return state

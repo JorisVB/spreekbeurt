@@ -21,11 +21,11 @@ const Calendar = ({month, year, daysArray, onIncreaseMonth}) => {
                         </tr>
                     </thead>   
                     <tbody>
-                        {daysArray.map((week) =>
-                            <tr key={week}>
-                                {week.map((day) =>
-                                    <td key={day.dateDay} style={{ 'backgroundColor': day.color }}>
-                                        {day.dateDay}
+                        {daysArray[0].map((week, wkindex) =>
+                            <tr key={wkindex}>
+                                {week.map((day, dayindex) =>
+                                    <td key={wkindex+"_"+dayindex}>
+                                        <div className={day.className}>{day.dateDay}</div>
                                     </td>
                                 )}
                             </tr>                             

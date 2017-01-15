@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
     onSetOccursEveryAmount: (scheduleId, amount) => { dispatch(Actions.SetOccursEveryAmount(scheduleId, amount))},
     onSetOccurrenceType: (scheduleId, occurrenceType) => { dispatch(Actions.SetOccurrenceType(scheduleId, occurrenceType))},
     onToggleDay: (scheduleId, weekday, checked) => { dispatch(Actions.ToggleDay(scheduleId, weekday, checked)) },
+    onSetStartDate: (scheduleId, startDate) => { dispatch(Actions.SetStartDate(scheduleId, startDate)) },
 })
 
 const SelectedScheduleDetails = connect(mapStateToProps, mapDispatchToProps)(ScheduleDetails);

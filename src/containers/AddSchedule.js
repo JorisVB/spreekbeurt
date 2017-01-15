@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 let AddScheduleButton = ({dispatch}) => {    
     return (
-        <Button onClick={ () => {dispatch(AddSchedule())} }>+</Button>
+        <Button onClick={ () => {dispatch(AddSchedule())} }>Schedule toevoegen</Button>
     )
 }
 AddScheduleButton = connect()(AddScheduleButton) 
