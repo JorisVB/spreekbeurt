@@ -52,7 +52,7 @@ const schedule = (state = {}, action) => {
 const newSchedule = (id) => {
     return {
         id: id,
-        name: `New schedule (${id})`,        
+        name: `Nieuwe schedule`,        
         hours: [],
         occursEveryType: occurrenceTypes.DAILY.key,
         occursEveryAmount: 1,    

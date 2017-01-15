@@ -46,8 +46,8 @@ const IsBefore = (day1, day2) => {
 
 const SetHasScheduled = (schedule, day) => {
 
-    if(IsBefore(day.date, schedule.startDate)) {        
-        return Object.assign({}, day, { className: "" });        
+    if(IsBefore(day.date, schedule.startDate)) {           
+        return day;        
     }
     switch (schedule.scheduleType) {
         case scheduleTypes.ADD.key:

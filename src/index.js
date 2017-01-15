@@ -13,18 +13,17 @@ import rootReducer from './reducers'
 let date = new Date();
 let initialState = {
   schedules: [
-    {
-      id: 1,
-      name: "Voorbeeld schedule 1",
-      scheduleType: {},      
-      occursEveryType: occurrenceTypes.DAILY.key,
-      occursEveryAmount: 1,
-      occurs: [],
-      startDate: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12) // 12h, otherwise the datepicker show a date earlier probably due some UTC stuff
-    }
+    // {
+    //   id: 1,
+    //   name: "Voorbeeld schedule 1",
+    //   scheduleType: {},      
+    //   occursEveryType: occurrenceTypes.DAILY.key,
+    //   occursEveryAmount: 1,
+    //   occurs: [],
+    //   startDate: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12) // 12h, otherwise the datepicker show a date earlier probably due some UTC stuff
+    // }
   ], 
-  ui: { 
-    selectedScheduleId: 1
+  ui: {     
   }, 
   calendar: {    
     month: date.getMonth(),
