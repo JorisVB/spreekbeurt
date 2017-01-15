@@ -20,7 +20,7 @@ let initialState = {
       occursEveryType: occurrenceTypes.DAILY.key,
       occursEveryAmount: 1,
       occurs: [],
-      startDate: new Date()
+      startDate: new Date(date.getFullYear(), date.getMonth(), date.getDate(), 12) // 12h, otherwise the datepicker show a date earlier probably due some UTC stuff
     }
   ], 
   ui: { 

@@ -39,7 +39,16 @@ export const formatToRows = (decoratedDaysList) => {
 
 // --- daysListReducer
 
+const IsBefore = (day1, day2) => {
+    var isBefore = new Date(day1.getFullYear(), day1.getMonth(), day1.getDate()) < new Date(day2.getFullYear(), day2.getMonth(), day2.getDate());    
+    return isBefore;
+}
+
 const SetHasScheduled = (schedule, day) => {
+
+    if(IsBefore(day.date, schedule.startDate)) {        
+        return Object.assign({}, day, { className: "" });        
+    }
     switch (schedule.scheduleType) {
         case scheduleTypes.ADD.key:
             return Object.assign({}, day, { className: "hasScheduled" });
